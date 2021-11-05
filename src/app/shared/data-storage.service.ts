@@ -17,10 +17,11 @@ export class DataStorageService {
     }
 
     fetchRecipes() {
-        return this.http
-        .get<Recipe[]>('https://restaurant-recipes-default-rtdb.firebaseio.com/recipes.json')
+        return this.http.get<Recipe[]>('https://restaurant-recipes-default-rtdb.firebaseio.com/recipes.json')
         .pipe(
-            map( recipes => recipes.map( recipe => ({...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}) )),
+            map( 
+                recipes => recipes.map( recipe => ({...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}))
+            ),
             tap( recipes => this.recipeService.setRecipes(recipes))
         )
     }

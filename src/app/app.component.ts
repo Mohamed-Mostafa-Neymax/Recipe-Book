@@ -21,6 +21,7 @@ export class AppComponent {
 
     // this.behavior.next('BehaviorSubject = 2');
     // this.behavior.next('BehaviorSubject = 3');
+    // this.behavior.next('BehaviorSubject = 4');
     // this.behavior.subscribe( value => console.log(value) );
 
     // this.reply.next('ReplaySubject = 1');
