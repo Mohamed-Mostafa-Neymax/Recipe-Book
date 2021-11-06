@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { Component, OnInit } from '@angular/core';
 // import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
@@ -6,14 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
   // subj = new Subject<string>();
   // behavior = new BehaviorSubject<string>('BehaviorSubject = 1');
   // reply = new ReplaySubject<string>(2);
   // async = new AsyncSubject<string>();
-
+  constructor(private authService: AuthService) {}
   ngOnInit() {
+    this.authService.autoLogin();
     // this.subj.next('Subject = 1');
     // this.subj.subscribe( value => console.log(value) );
     // this.subj.next('Subject = 2');
